@@ -1,0 +1,23 @@
+{
+  "name": "Sms",
+  "version": "0.0.1",
+  "homepage": "http://freetext4all.com",
+  "authors": [
+    "Charlie Mc"
+  ],
+  "description": "Free Text and Sharning of Ideas.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.8",
+    "angular-cookies": "^1.5.8",
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "angular-messages": "^1.5.8",
+    "angular-animate": "^1.5.8"
+  }
+}

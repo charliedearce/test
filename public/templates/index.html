@@ -1,0 +1,69 @@
+<form name="sendForm" ng-submit="sendMessage(sendForm)" novalidate>
+    <div class="container">
+        <h1 class="text-center">Free Text 4 All</h1>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+
+                <div ng-show="showSuccess" class="alert alert-success text-center animate-show">
+                    <strong class="message fadein fadeout">Message Sent</strong>
+                </div>
+                <div class="input-group" ng-class="{'has-error': sendForm.MessageTo.$error && formSubmitted}">
+                    <span class="input-group-addon left" id="basic-addon1">+63</span>
+                    <input type="text" class="form-control" placeholder="Phone number" aria-describedby="basic-addon1" name="MessageTo" ng-model="newMessage.messageto" ng-minlength="10" ng-maxlength="10" ng-pattern="/^(9)\d{9}$/" required>
+                </div>
+
+                <div ng-messages="sendForm.MessageTo.$error" ng-if="formSubmitted" class="text-danger">
+                    <div ng-message="required">Phone number required</div >
+                    <div ng-message="minlength">Phone number too small</div >
+                    <div ng-message="maxlength">Phone number too long</div >
+                    <div ng-message="pattern">Wrong phone number</div >
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 ">
+                <div class="input-group" ng-class="{'has-error': sendForm.MessageText.$error && formSubmitted}">
+                    <textarea class="form-control " placeholder="Text Message" rows="5" cols="100" name="MessageText" ng-model="newMessage.messagetext"  ng-minlength="2" ng-maxlength="153" required>
+                    </textarea>
+                </div>
+
+                <div ng-messages="sendForm.MessageText.$error" ng-if="formSubmitted" class="text-danger">
+                    <div ng-message="required">Message required</div >
+                    <div ng-message="minlength">Message too small</div >
+                    <div ng-message="maxlength">Message too long</div >
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="input-group" ng-class="{'has-error': sendForm.Answer.$error && formSubmitted || captchaError}">
+                    <span class="input-group-addon left" id="basic-addon1">{{valone}} {{operator}} {{valtwo}}</span>
+                    <input type="text" class="form-control" placeholder="Answer" aria-describedby="basic-addon1" name="Answer" ng-model="newMessage.answer" required>
+                    <input type="hidden" name="canswer" value="">
+                </div>
+                <div ng-show="captchaError" class="text-danger">
+                    <div>Invalid Captcha</div>
+                </div>
+                <div ng-messages="sendForm.Answer.$error" ng-if="formSubmitted" class="text-danger">
+                    <div ng-message="required">Captcha required</div >
+                </div>
+                <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                <div class="text-center">
+                <input type="submit" name="send" value="Send" class="btn btn-success" >
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <a href="http://info.flagcounter.com/show"><img  class="center-block" src="http://s10.flagcounter.com/count2/show/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+            </div>
+        </div>
+    </div>
+</form>
